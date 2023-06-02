@@ -10,11 +10,6 @@ class User < ApplicationRecord
 
   has_many :reviews,
     foreign_key: :author_id
-    
-  has_many :favorites
-  has_many :favorite_benches,
-    through: :favorites,
-    source: :bench
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
@@ -32,27 +27,15 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    generate_unique_session_token
-    save!
+    self.session_token = SecureRandom.urlsafe_base64(16)
+    self.save!
     self.session_token
   end
 
   private
 
   def ensure_session_token
-    generate_unique_session_token unless self.session_token
-  end
-
-  def new_session_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def generate_unique_session_token
-    self.session_token = new_session_token
-    while User.find_by(session_token: self.session_token)
-      self.session_token = new_session_token
-    end
-    self.session_token
+    self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 
 end
