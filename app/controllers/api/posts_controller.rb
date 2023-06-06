@@ -18,10 +18,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(
-      :lat,
-      :lng,
-      :description
-    )
+    params.require(:post).permit(:lat, :lng, :description)
   end
 end
