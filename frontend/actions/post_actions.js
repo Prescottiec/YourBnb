@@ -9,7 +9,7 @@ export const receivePosts = posts => ({
   posts,
 });
 
-export const receiveBench = ({ post, reviews, authors }) => ({
+export const receivePost = ({ post, reviews, authors }) => ({
   type: RECEIVE_POST,
   post,
   reviews,
@@ -29,20 +29,20 @@ export const createReview = review => dispatch => (
   ))
 );
 
-export const fetchBenches = filters => dispatch => (
-  APIUtil.fetchBenches(filters).then(posts => (
+export const fetchPosts = filters => dispatch => (
+  APIUtil.fetchPosts(filters).then(posts => (
     dispatch(receivePosts(posts))
   ))
 );
 
-export const fetchBench = id => dispatch => (
-  APIUtil.fetchBench(id).then(payload => (
-    dispatch(receiveBench(payload))
+export const fetchPost = id => dispatch => (
+  APIUtil.fetchPost(id).then(payload => (
+    dispatch(receivePost(payload))
   ))
 );
 
-export const createBench = post => dispatch => (
-  APIUtil.createBench(post).then(post => (
-    dispatch(receiveBench(post))
+export const createPost = post => dispatch => (
+  APIUtil.createPost(post).then(post => (
+    dispatch(receivePost(post))
   ))
 );
