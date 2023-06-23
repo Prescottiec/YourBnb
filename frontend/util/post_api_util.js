@@ -1,10 +1,9 @@
-export const fetchPosts = data => (
+export const fetchPosts = (data) =>
   $.ajax({
-    method: 'GET',
-    url: 'api/posts',
-    data
-  })
-);
+    method: "GET",
+    url: "api/posts",
+    error: (err) => console.log(err)
+  });
 
 export const fetchPost = id => (
   $.ajax({
