@@ -1,9 +1,9 @@
-class PostIndex extends React.Component {
-  componentDidMount() {
-    
-  }
+// import React from "react";
 
-  render() {
-    
-  }
-}
+// class PostIndex extends React.Component {
+//   componentDidMount() {}
+
+//   render() {}
+// }
+
+// export default PostIndex;
