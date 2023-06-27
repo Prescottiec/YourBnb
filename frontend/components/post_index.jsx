@@ -1,9 +1,13 @@
-// import React from "react";
+import React from "react";
+import PostIndexItem from "./post_index_item";
 
-// class PostIndex extends React.Component {
-//   componentDidMount() {}
+const PostIndex = ({ posts }) => (
+  <div>
+    <h1>Posts: </h1>
+    {posts.map((post) => (
+      <PostIndexItem post={post} key={post.id} />
+    ))}
+  </div>
+);
 
-//   render() {}
-// }
-
-// export default PostIndex;
+export default PostIndex;

@@ -17,6 +17,10 @@ class Api::PostsController < ApplicationController
 
   private
 
+  # def adult_range
+  #   (params[:minAdults]..params[:maxAdults])
+  # end
+
   def post_params
     params.require(:post).permit(:lat, :lng, :description)
   end
