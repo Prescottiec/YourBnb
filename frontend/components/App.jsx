@@ -6,7 +6,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-// import PostIndexContainer from './post_index_container'
+import SearchContainer from "./search_container";
 
 const App = () => (
   <div>
@@ -17,7 +17,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      {/* <Route exact path="/" component={PostIndexContainer} /> */}
+      <Route exact path="/" component={SearchContainer} />
     </Switch>
   </div>
 );
