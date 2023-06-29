@@ -7,13 +7,12 @@ const Search = ({ posts, minSeating, maxSeating, updateFilter }) => (
   <div className="user-pane">
     <div className="left-half">
       <h5>Click Map to Add Post!</h5>
-      <PostMap
-        posts={posts}
-      />
+      <PostMap posts={posts} />
     </div>
     <div className="right-half">
       <PostIndex posts={posts} />
     </div>
+    <PostIndex posts={posts} />
   </div>
 );
 
