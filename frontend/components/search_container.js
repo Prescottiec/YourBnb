@@ -5,7 +5,7 @@ import Search from "./search";
 
 const mapStateToProps = (state) => ({
   posts: Object.values(state.entities.posts),
-  postId: postId
+  // postId: postId
 });
 
 const mapDispatchToProps = (dispatch) => ({
