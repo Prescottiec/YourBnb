@@ -1,11 +1,23 @@
 class MarkerManager {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
     this.markers = {};
+    this.handleClick = handleClick;
   }
 
   updateMarkers(posts) {
-    console.log("time to update");
+    const postsObj = {};
+    posts.forEach((post) => (postsObj[post.id] = post));
+
+    posts
+      .filter((post) => !this.markers[post.id])
+      .forEach((newPost) =>
+        this.createMarkerFromPost(newPost, this.handleClick)
+      );
+
+    Object.keys(this.markers)
+      .filter((postId) => !postsObj[postId])
+      .forEach((postId) => this.removeMarker(this.markers[postId]));
   }
 
   createMarkerFromPost(post) {

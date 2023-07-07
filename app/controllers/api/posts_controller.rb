@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :require_logged_in, only: [:create]
 
   def index
-    @posts = Post.all
+    posts = bounds ? Post.in_bounds(bounds) : Post.all
     render :index
   end
 
