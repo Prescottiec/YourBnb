@@ -31,6 +31,11 @@ class MarkerManager {
     marker.addListener("click", () => this.handleClick(post));
     this.markers[marker.postId] = marker;
   }
+
+  removeMarker(marker) {
+    this.markers[marker.postId].setMap(null);
+    delete this.markers[marker.postId];
+  }
 }
 
 export default MarkerManager;
