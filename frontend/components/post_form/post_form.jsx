@@ -9,7 +9,7 @@ class PostForm extends React.Component {
       description: "",
       adult: 2,
       photoFile: null,
-      photoUrl: null,
+      photoUrl: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToSearch = this.navigateToSearch.bind(this);
