@@ -1,12 +1,14 @@
-import { UPDATE_BOUNDS } from "../actions/filter_actions";
+import { UPDATE_FILTER } from "../actions/filter_actions";
 
 const defaultFilters = Object.freeze({
-  bounds: {}
+  bounds: {},
+  minAdults: 1,
+  maxAdults: 16
 });
 
 const filtersReducer = (state = defaultFilters, action) => {
   Object.freeze(state);
-  if (action.type === UPDATE_BOUNDS) {
+  if (action.type === UPDATE_FILTER) {
     const newFilter = {
       [action.filter]: action.value,
     };

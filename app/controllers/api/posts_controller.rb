@@ -3,6 +3,11 @@ class Api::PostsController < ApplicationController
 
   def index
     posts = bounds ? Post.in_bounds(bounds) : Post.all
+
+    if params[:minAdults] && params[:maxAdults]
+      posts = posts.where(adults: num_adults)
+    end
+
     render :index
   end
 
@@ -17,9 +22,9 @@ class Api::PostsController < ApplicationController
 
   private
 
-  # def adult_range
-  #   (params[:minAdults]..params[:maxAdults])
-  # end
+  def adult_range
+    (params[:minAdults]..params[:maxAdults])
+  end
 
   def post_params
     params.require(:post).permit(:lat, :lng, :description, :adult, :photo)
