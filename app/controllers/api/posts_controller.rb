@@ -8,6 +8,7 @@ class Api::PostsController < ApplicationController
       posts = posts.where(adults: num_adults)
     end
 
+    @posts = posts
     render :index
   end
 
@@ -22,11 +23,15 @@ class Api::PostsController < ApplicationController
 
   private
 
-  def adult_range
+  def num_adults
     (params[:minAdults]..params[:maxAdults])
   end
 
   def post_params
     params.require(:post).permit(:lat, :lng, :description, :adult, :photo)
+  end
+
+  def bounds
+    params[:bounds]
   end
 end
