@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   validates :description, :lat, :lng, presence: true
 
   # has_many :reviews
-  has_one_attached :photo
+  has_many_attached :photos
 
 
   # Returns all posts that are within the boundaries

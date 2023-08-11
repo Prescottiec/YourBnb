@@ -51,8 +51,7 @@ class PostForm extends React.Component {
     if (this.state.photoFile) {
       formData.append("post[photo]", this.state.photoFile);
     }
-    // This will fail because we do not have a AWS bucket set up for this project
-    // presently.
+    
     this.props.createPost(formData);
     this.navigateToSearch();
   }
